@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neo Cell · Servicio Técnico de Celulares · Santa Cruz</title>
+<style>
+  :root{
+    --verde-oscuro:#0a4f1f;
+    --verde:#1d8b3a;
+    --verde-brillante:#2ecc71;
+    --lima:#a8e63e;
+    --lima-brillante:#c4f06a;
+    --amarillo:#ffcf2e;
+    --negro:#141414;
+    --gris:#e9e9e2;
+    --blanco:#fdfdf7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--blanco);
+    color:var(--negro);
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.brand{
+    font-family:'Arial Black',Impact,'Segoe UI',sans-serif;
+    font-weight:900;
+    letter-spacing:-0.02em;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:var(--negro);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 6vw;
+    border-bottom:3px solid var(--lima);
+  }
+  .logo-mark{
+    display:flex;align-items:center;gap:10px;
+  }
+  .logo-badge{
+    width:48px;
+    height:48px;
+    /* Sin fondo, sin sombra, solo la imagen */
+    background:none;
+    box-shadow:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    overflow:hidden;
+  }
+  .logo-badge img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+  }
+  .logo-text{
+    color:var(--blanco);
+    font-size:1.15rem;
+    line-height:1;
+  }
+  .logo-text span{
+    display:block;
+    font-size:0.55rem;
+    color:var(--lima-brillante);
+    letter-spacing:0.18em;
+    font-weight:600;
+    margin-top:3px;
+  }
+  header a.call-btn{
+    background:var(--amarillo);
+    color:var(--negro);
+    padding:9px 18px;
+    border-radius:30px;
+    font-weight:800;
+    text-decoration:none;
+    font-size:0.85rem;
+    white-space:nowrap;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(174,228,54,0.35), transparent 45%),
+      linear-gradient(160deg, var(--verde-oscuro) 0%, var(--verde) 55%, var(--lima) 130%);
+    color:var(--blanco);
+    padding:70px 6vw 90px;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:40px;
+    align-items:center;
+    overflow:hidden;
+  }
+  .hero h1{
+    font-size:clamp(2.8rem,7vw,4.8rem);
+    line-height:0.92;
+    text-shadow:0 4px 18px rgba(0,0,0,0.25);
+  }
+  .hero h1 .accent{
+    color:var(--amarillo);
+  }
+  .hero h1 .white{
+    color:var(--blanco);
+  }
+  .hero .sub-title{
+    font-size:1.2rem;
+    font-weight:700;
+    color:var(--blanco);
+    letter-spacing:0.05em;
+    margin-top:8px;
+    background:rgba(0,0,0,0.2);
+    display:inline-block;
+    padding:4px 18px;
+    border-radius:30px;
+    backdrop-filter:blur(4px);
+    border:1px solid rgba(255,255,255,0.15);
+  }
+  .hero p.tag{
+    margin-top:20px;
+    font-size:1.15rem;
+    max-width:480px;
+    color:rgba(255,255,255,0.92);
+    font-weight:500;
+  }
+  .hero-cta{
+    margin-top:34px;
+    display:flex;gap:14px;flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--amarillo);color:var(--negro);
+    padding:16px 26px;border-radius:12px;
+    font-weight:800;text-decoration:none;font-size:1rem;
+    box-shadow:0 8px 0 #c99e00;
+    transition:transform .15s ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-secondary{
+    background:rgba(0,0,0,0.3);
+    border:1px solid rgba(255,255,255,0.4);
+    color:var(--blanco);
+    padding:16px 26px;border-radius:12px;
+    font-weight:700;text-decoration:none;font-size:1rem;
+  }
+
+  /* Hero Logo - sin bordes ni sombras */
+  .hero-logo-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:380px;
+  }
+  .hero-logo{
+    max-width:320px;
+    width:100%;
+    border:none;
+    box-shadow:none;
+    transition:transform .3s ease;
+    display:block;
+  }
+  .hero-logo:hover{
+    transform:scale(1.02);
+  }
+
+  /* ---------- Info strip ---------- */
+  .info-strip{
+    background:var(--negro);
+    color:var(--blanco);
+    display:flex;flex-wrap:wrap;
+    justify-content:center;
+    gap:0;
+  }
+  .info-item{
+    flex:1 1 220px;
+    padding:22px 24px;
+    border-right:1px solid rgba(255,255,255,0.08);
+    display:flex;align-items:center;gap:14px;
+  }
+  .info-item:last-child{border-right:none;}
+  .info-icon{
+    width:42px;height:42px;border-radius:10px;
+    background:var(--lima);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.2rem;flex-shrink:0;
+  }
+  .info-item .label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--lima-brillante);font-weight:700;}
+  .info-item .value{font-size:0.98rem;font-weight:700;}
+
+  /* ---------- Sections ---------- */
+  section{padding:80px 6vw;}
+  .section-head{max-width:640px;margin:0 auto 50px;text-align:center;}
+  .section-head .kicker{
+    color:var(--verde);font-weight:800;letter-spacing:0.14em;
+    text-transform:uppercase;font-size:0.78rem;
+  }
+  .section-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-top:8px;color:var(--negro);}
+
+  /* Services */
+  .services{background:var(--gris);}
+  .service-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;max-width:1100px;margin:0 auto;
+  }
+  .service-card{
+    background:var(--blanco);
+    border-radius:16px;
+    padding:28px 24px;
+    border-left:5px solid var(--lima);
+    box-shadow:0 8px 24px rgba(0,0,0,0.05);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .service-card:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(0,0,0,0.1);}
+  .service-card .num{
+    font-family:'Arial Black',sans-serif;
+    font-size:0.75rem;color:var(--lima);font-weight:900;letter-spacing:0.1em;
+  }
+  .service-card h3{font-size:1.15rem;margin:8px 0 8px;color:var(--negro);}
+  .service-card p{font-size:0.92rem;color:#555;line-height:1.5;}
+
+  /* Brands marquee */
+  .brands{
+    background:var(--verde-oscuro);
+    padding:50px 0;
+    overflow:hidden;
+  }
+  .brands h2{text-align:center;color:var(--blanco);margin-bottom:30px;font-size:1.5rem;}
+  .marquee-track{
+    display:flex;gap:50px;
+    width:max-content;
+    animation:scroll 22s linear infinite;
+  }
+  @keyframes scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  .brand-chip{
+    color:var(--lima-brillante);
+    font-family:'Arial Black',sans-serif;
+    font-size:1.3rem;
+    font-weight:900;
+    letter-spacing:0.02em;
+    opacity:0.9;
+    white-space:nowrap;
+  }
+
+  /* Banner de descuento */
+  .descuento-banner{
+    background:var(--amarillo);
+    color:var(--negro);
+    overflow:hidden;
+    border-top:2px solid var(--negro);
+    border-bottom:2px solid var(--negro);
+  }
+  .descuento-track{
+    display:flex;gap:60px;width:max-content;
+    padding:10px 0;
+    animation:scroll 16s linear infinite;
+  }
+  .descuento-track span{
+    font-weight:900;font-size:0.95rem;letter-spacing:0.03em;
+    white-space:nowrap;
+  }
+  .descuento-track span b{color:var(--verde-oscuro);}
+
+  /* Formulario de diagnóstico */
+  .diagnostico{background:var(--verde-oscuro);color:var(--blanco);}
+  .diag-wrap{
+    max-width:760px;margin:0 auto;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(174,228,54,0.35);
+    border-radius:22px;
+    padding:36px;
+  }
+  .diag-badge{
+    display:inline-block;background:var(--amarillo);color:var(--negro);
+    font-weight:900;font-size:0.75rem;padding:6px 14px;border-radius:20px;
+    margin-bottom:14px;letter-spacing:0.04em;
+  }
+  .form-row{margin-bottom:20px;}
+  .form-row label{
+    display:block;font-size:0.8rem;font-weight:700;
+    color:var(--lima-brillante);text-transform:uppercase;letter-spacing:0.08em;
+    margin-bottom:8px;
+  }
+  .form-row select, .form-row input[type="text"], .form-row input[type="tel"]{
+    width:100%;padding:13px 14px;border-radius:10px;
+    border:1px solid rgba(255,255,255,0.2);
+    background:rgba(255,255,255,0.08);color:var(--blanco);
+    font-size:0.95rem;font-family:inherit;
+  }
+  .form-row select option{color:var(--negro);}
+  .fallas-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:10px;
+  }
+  .falla-chip{
+    display:flex;align-items:center;gap:9px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:10px;padding:11px 12px;
+    cursor:pointer;font-size:0.9rem;font-weight:600;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .falla-chip:has(input:checked){
+    border-color:var(--lima-brillante);
+    background:rgba(174,228,54,0.15);
+  }
+  .falla-chip input{accent-color:var(--lima-brillante);width:16px;height:16px;flex-shrink:0;}
+  .btn-whatsapp{
+    width:100%;margin-top:8px;
+    background:#25D366;color:#06210f;
+    border:none;padding:17px;border-radius:12px;
+    font-weight:900;font-size:1.02rem;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    box-shadow:0 6px 0 #128c43;
+    transition:transform .15s ease;
+  }
+  .btn-whatsapp:hover{transform:translateY(-2px);}
+  .diag-note{font-size:0.78rem;color:rgba(255,255,255,0.6);margin-top:12px;text-align:center;}
+
+  /* Ubicación */
+  .ubicacion{
+    background:var(--negro);
+    color:var(--blanco);
+    display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;
+  }
+  .ubicacion .map-box{
+    border-radius:18px;
+    height:300px;
+    border:2px solid var(--lima);
+    position:relative;
+    overflow:hidden;
+  }
+  .ubicacion .map-box iframe{
+    width:100%;height:100%;border:0;filter:grayscale(0.15) contrast(1.05);
+  }
+  .ubicacion h2{color:var(--blanco);font-size:2rem;margin-bottom:18px;}
+  .ubicacion .addr-line{
+    display:flex;gap:12px;margin-bottom:16px;font-size:1.02rem;
+  }
+  .ubicacion .addr-line b{color:var(--lima-brillante);}
+  .ubicacion .dot{color:var(--amarillo);}
+
+  /* Contacto / CTA final */
+  .cta-final{
+    background:linear-gradient(160deg,var(--lima),var(--verde));
+    text-align:center;
+    color:var(--negro);
+  }
+  .cta-final h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:14px;}
+  .cta-final p{font-size:1.05rem;margin-bottom:30px;font-weight:600;}
+  .phone-big{
+    font-size:clamp(2rem,5vw,3rem);
+    font-weight:900;
+    color:var(--negro);
+    background:var(--amarillo);
+    display:inline-block;
+    padding:16px 34px;
+    border-radius:16px;
+    text-decoration:none;
+    box-shadow:0 8px 0 rgba(0,0,0,0.2);
+  }
+
+  footer{
+    background:var(--negro);color:rgba(255,255,255,0.6);
+    text-align:center;padding:26px 6vw;font-size:0.82rem;
+  }
+  footer span{color:var(--lima-brillante);font-weight:700;}
+
+  /* ---------- Responsive Móvil ---------- */
+  @media (max-width:820px){
+    .hero{grid-template-columns:1fr;padding-top:40px;text-align:center;}
+    .hero h1{font-size:clamp(2.4rem,10vw,3.6rem);}
+    .hero p.tag{max-width:100%;margin-left:auto;margin-right:auto;}
+    .hero-cta{justify-content:center;}
+    .hero-logo-container{height:auto;margin-top:20px;}
+    .hero-logo{max-width:200px;margin:0 auto;}
+    .ubicacion{grid-template-columns:1fr;text-align:center;}
+    .ubicacion .addr-line{justify-content:center;}
+    .info-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);}
+    .diag-wrap{padding:24px 18px;}
+    .fallas-grid{grid-template-columns:1fr 1fr;}
+    .service-grid{grid-template-columns:1fr;}
+    .btn-primary, .btn-secondary, .btn-whatsapp, .phone-big{font-size:0.95rem;padding:14px 20px;}
+    .phone-big{padding:14px 24px;}
+    .brand-chip{font-size:1rem;}
+  }
+
+  @media (max-width:480px){
+    header{padding:10px 4vw;flex-wrap:wrap;gap:8px;}
+    .logo-text{font-size:1rem;}
+    .logo-text span{font-size:0.5rem;}
+    .logo-badge{width:40px;height:40px;}
+    header a.call-btn{font-size:0.75rem;padding:6px 12px;}
+    .hero{padding:40px 4vw 60px;}
+    .hero h1{font-size:clamp(2rem,12vw,2.8rem);}
+    .hero .sub-title{font-size:1rem;}
+    .hero p.tag{font-size:0.95rem;}
+    .info-item{padding:14px 16px;gap:10px;}
+    .info-item .value{font-size:0.85rem;}
+    section{padding:50px 4vw;}
+    .section-head h2{font-size:1.6rem;}
+    .diag-wrap{padding:16px 12px;}
+    .fallas-grid{grid-template-columns:1fr;}
+    .falla-chip{font-size:0.85rem;padding:8px 10px;}
+    .btn-whatsapp{font-size:0.9rem;padding:14px;}
+    .ubicacion .map-box{height:200px;}
+    .cta-final h2{font-size:1.6rem;}
+    .phone-big{font-size:1.6rem;padding:12px 20px;}
+    footer{font-size:0.7rem;padding:16px 4vw;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-mark">
+    <div class="logo-badge">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaL0t2GtWj8J5KQ0f8a4A-W89XG4di5N-olj4o3jVFew&s=10" alt="Neo Cell Logo">
+    </div>
+    <div class="logo-text">NEO CELL<span>Servicio Técnico</span></div>
+  </div>
+  <a class="call-btn" href="tel:77638354">📞 776-38354</a>
+</header>
+
+<div class="descuento-banner">
+  <div class="descuento-track">
+    <span>🏷️ TODO DESCUENTO HECHO POR ESTA PLATAFORMA TIENE UN <b>20% DE DESCUENTO</b></span>
+    <span>🏷️ TODO DESCUENTO HECHO POR ESTA PLATAFORMA TIENE UN <b>20% DE DESCUENTO</b></span>
+    <span>🏷️ TODO DESCUENTO HECHO POR ESTA PLATAFORMA TIENE UN <b>20% DE DESCUENTO</b></span>
+    <span>🏷️ TODO DESCUENTO HECHO POR ESTA PLATAFORMA TIENE UN <b>20% DE DESCUENTO</b></span>
+  </div>
+</div>
+
+<section class="hero">
+  <div>
+    <h1>
+      <span class="accent">NEO CELL</span><br>
+      <span class="white">Servicio Técnico</span>
+    </h1>
+    <div class="sub-title">Adan Paredes Tecnico</div>
+    <p class="tag">Decodificación, flasheo, desbloqueo, software y hardware para todas las marcas de celulares.</p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="tel:77638354">Llamar ahora</a>
+      <a class="btn-secondary" href="#ubicacion">Ver ubicación</a>
+    </div>
+  </div>
+  <div class="hero-logo-container">
+    <img class="hero-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaL0t2GtWj8J5KQ0f8a4A-W89XG4di5N-olj4o3jVFew&s=10" alt="Neo Cell Logo">
+  </div>
+</section>
+
+<div class="info-strip">
+  <div class="info-item">
+    <div class="info-icon">📞</div>
+    <div><div class="label">Celular</div><div class="value">776-38354</div></div>
+  </div>
+  <div class="info-item">
+    <div class="info-icon">📍</div>
+    <div><div class="label">Dirección</div><div class="value">Comercial Grigotá, Pasillo B, Local 23</div></div>
+  </div>
+  <div class="info-item">
+    <div class="info-icon">🌎</div>
+    <div><div class="label">Ciudad</div><div class="value">Santa Cruz, Bolivia</div></div>
+  </div>
+</div>
+
+<section class="services">
+  <div class="section-head">
+    <div class="kicker">Qué hacemos</div>
+    <h2>Nuestros servicios</h2>
+  </div>
+  <div class="service-grid">
+    <div class="service-card">
+      <div class="num">01</div>
+      <h3>Decodificaciones</h3>
+      <p>Liberamos tu equipo de la operadora para que uses cualquier chip.</p>
+    </div>
+    <div class="service-card">
+      <div class="num">02</div>
+      <h3>Flasheo</h3>
+      <p>Reinstalación de software original para solucionar fallas de sistema.</p>
+    </div>
+    <div class="service-card">
+      <div class="num">03</div>
+      <h3>Reparación de celulares</h3>
+      <p>Diagnóstico y arreglo de fallas físicas y técnicas en general.</p>
+    </div>
+    <div class="service-card">
+      <div class="num">04</div>
+      <h3>Desbloqueo</h3>
+      <p>Desbloqueo de patrón, cuenta y contraseña de forma segura.</p>
+    </div>
+    <div class="service-card">
+      <div class="num">05</div>
+      <h3>Software</h3>
+      <p>Actualizaciones, formateo y optimización del sistema operativo.</p>
+    </div>
+    <div class="service-card">
+      <div class="num">06</div>
+      <h3>Hardware</h3>
+      <p>Cambio de piezas y componentes internos con mini paneles técnicos.</p>
+    </div>
+  </div>
+</section>
+
+<div class="brands">
+  <h2>Trabajamos con todas las marcas</h2>
+  <div class="marquee-track">
+    <span class="brand-chip">SAMSUNG</span>
+    <span class="brand-chip">XIAOMI</span>
+    <span class="brand-chip">APPLE</span>
+    <span class="brand-chip">HONOR</span>
+    <span class="brand-chip">TECNO</span>
+    <span class="brand-chip">INFINIX</span>
+    <span class="brand-chip">MOTOROLA</span>
+    <span class="brand-chip">REALME</span>
+    <span class="brand-chip">HUAWEI</span>
+    <span class="brand-chip">ZTE</span>
+    <span class="brand-chip">OPPO</span>
+    <span class="brand-chip">SONY</span>
+    <span class="brand-chip">MEIZU</span>
+    <!-- Repetimos para efecto infinito -->
+    <span class="brand-chip">SAMSUNG</span>
+    <span class="brand-chip">XIAOMI</span>
+    <span class="brand-chip">APPLE</span>
+    <span class="brand-chip">HONOR</span>
+    <span class="brand-chip">TECNO</span>
+    <span class="brand-chip">INFINIX</span>
+    <span class="brand-chip">MOTOROLA</span>
+    <span class="brand-chip">REALME</span>
+    <span class="brand-chip">HUAWEI</span>
+    <span class="brand-chip">ZTE</span>
+    <span class="brand-chip">OPPO</span>
+    <span class="brand-chip">SONY</span>
+    <span class="brand-chip">MEIZU</span>
+  </div>
+</div>
+
+<section class="diagnostico" id="diagnostico">
+  <div class="diag-wrap">
+    <span class="diag-badge">20% OFF · Cotización gratis</span>
+    <div class="section-head" style="text-align:left;margin-bottom:28px;">
+      <div class="kicker" style="color:var(--lima-brillante);">Cuéntanos qué pasó</div>
+      <h2 style="color:var(--blanco);">Diagnóstico rápido por WhatsApp</h2>
+    </div>
+    <form id="form-diagnostico">
+      <div class="form-row">
+        <label for="modelo">Marca de tu celular</label>
+        <select id="modelo" required>
+          <option value="" disabled selected>Selecciona tu marca</option>
+          <option value="Samsung">Samsung</option>
+          <option value="Xiaomi">Xiaomi</option>
+          <option value="Apple">Apple / iPhone</option>
+          <option value="Honor">Honor</option>
+          <option value="Tecno">Tecno</option>
+          <option value="Infinix">Infinix</option>
+          <option value="Motorola">Motorola</option>
+          <option value="Realme">Realme</option>
+          <option value="Huawei">Huawei</option>
+          <option value="ZTE">ZTE</option>
+          <option value="Oppo">Oppo</option>
+          <option value="Sony">Sony</option>
+          <option value="Meizu">Meizu</option>
+          <option value="Otra">Otra marca</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label>¿Cuál es la falla?</label>
+        <div class="fallas-grid">
+          <label class="falla-chip"><input type="checkbox" name="falla" value="Cambio de glass"> Cambio de glass</label>
+          <label class="falla-chip"><input type="checkbox" name="falla" value="Pantalla"> Pantalla</label>
+          <label class="falla-chip"><input type="checkbox" name="falla" value="Entrada de carga"> Entrada de carga</label>
+          <label class="falla-chip"><input type="checkbox" name="falla" value="Micrófono"> Micrófono</label>
+          <label class="falla-chip"><input type="checkbox" name="falla" value="Protector"> Protector</label>
+          <label class="falla-chip"><input type="checkbox" name="falla" value="Parlante"> Parlante</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label for="nombre">Tu nombre</label>
+        <input type="text" id="nombre" placeholder="Ej: María Pérez" required>
+      </div>
+
+      <div class="form-row">
+        <label for="telefono">Tu número de contacto</label>
+        <input type="tel" id="telefono" placeholder="Ej: 700 00000" required>
+      </div>
+
+      <button type="submit" class="btn-whatsapp">
+        <span>💬</span> Enviar por WhatsApp
+      </button>
+      <p class="diag-note">Al enviar, se abrirá WhatsApp con tu solicitud lista para mandarnos. Cotización con 20% de descuento incluido.</p>
+    </form>
+  </div>
+</section>
+
+<section class="ubicacion" id="ubicacion">
+  <div>
+    <h2>¿Dónde estamos?</h2>
+    <div class="addr-line"><span class="dot">●</span><span><b>Local:</b> Comercial Grigotá, Pasillo B, Local 23</span></div>
+    <div class="addr-line"><span class="dot">●</span><span><b>Ciudad:</b> Santa Cruz, Bolivia</span></div>
+    <div class="addr-line"><span class="dot">●</span><span><b>Celular:</b> 776-38354</span></div>
+    <a class="btn-primary" style="display:inline-block;margin-top:10px;" href="https://wa.me/59171707412" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+  </div>
+  <div class="map-box">
+    <iframe
+      src="https://www.google.com/maps?q=Comercial+Grigot%C3%A1,+Av.+Grigot%C3%A1,+Santa+Cruz+de+la+Sierra,+Bolivia&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen></iframe>
+  </div>
+</section>
+
+<section class="cta-final">
+  <h2>¿Tu celular necesita reparación?</h2>
+  <p>Escríbenos o llámanos, en Neo Cell le damos solución a tu equipo con 20% de descuento.</p>
+  <a class="phone-big" href="https://wa.me/59171707412" target="_blank" rel="noopener">💬 71707412</a>
+</section>
+
+<footer>
+  © 2026 <span>Neo Cell</span> · Servicio Técnico de Celulares · Comercial Grigotá, Pasillo B, Local 23 · Santa Cruz, Bolivia
+</footer>
+
+<script>
+  document.getElementById('form-diagnostico').addEventListener('submit', function(e){
+    e.preventDefault();
+    var modelo = document.getElementById('modelo').value;
+    var nombre = document.getElementById('nombre').value.trim();
+    var telefono = document.getElementById('telefono').value.trim();
+    var fallas = Array.from(document.querySelectorAll('input[name="falla"]:checked')).map(function(el){return el.value;});
+
+    if(!modelo || !nombre || !telefono){
+      alert('Por favor completa la marca, tu nombre y tu número de contacto.');
+      return;
+    }
+    if(fallas.length === 0){
+      alert('Selecciona al menos una falla de tu celular.');
+      return;
+    }
+
+    var mensaje =
+      'Hola Neo Cell 👋, quiero cotizar una reparación (20% de descuento):\n' +
+      '📱 Marca: ' + modelo + '\n' +
+      '🔧 Falla(s): ' + fallas.join(', ') + '\n' +
+      '🙋 Nombre: ' + nombre + '\n' +
+      '📞 Mi contacto: ' + telefono;
+
+    var url = 'https://wa.me/59171707412?text=' + encodeURIComponent(mensaje);
+    window.open(url, '_blank');
+  });
+</script>
+</body>
+</html>
