@@ -6,6 +6,7 @@
 <title>Neo Cell · Servicio Técnico de Celulares · Santa Cruz</title>
 <style>
   :root{
+    /* Colores ORIGINALES restaurados */
     --verde-oscuro:#0a4f1f;
     --verde:#1d8b3a;
     --verde-brillante:#2ecc71;
@@ -39,13 +40,15 @@
     border-bottom:3px solid var(--lima);
   }
   .logo-mark{
-    display:flex;align-items:center;gap:10px;
+    display:flex;
+    align-items:center;
+    gap:10px;
   }
   .logo-badge{
-    width:48px;
-    height:48px;
-    /* Sin fondo, sin sombra, solo la imagen */
-    background:none;
+    /* Tamaño aún más pequeño como acompañamiento */
+    width: auto;
+    height: 22px; /* Reducido a 22px */
+    background: transparent !important; /* Fondo eliminado */
     box-shadow:none;
     display:flex;
     align-items:center;
@@ -148,23 +151,29 @@
     font-weight:700;text-decoration:none;font-size:1rem;
   }
 
-  /* Hero Logo - sin bordes ni sombras */
+  /* Hero Logo - Fondo eliminado para integrarlo al degradado */
   .hero-logo-container{
     display:flex;
     justify-content:center;
     align-items:center;
     height:380px;
+    background: transparent; /* Se eliminó el color verde de fondo */
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    border: none;
   }
   .hero-logo{
-    max-width:320px;
-    width:100%;
-    border:none;
-    box-shadow:none;
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
     transition:transform .3s ease;
-    display:block;
   }
   .hero-logo:hover{
-    transform:scale(1.02);
+    transform:scale(1.03);
   }
 
   /* ---------- Info strip ---------- */
@@ -395,12 +404,17 @@
     header{padding:10px 4vw;flex-wrap:wrap;gap:8px;}
     .logo-text{font-size:1rem;}
     .logo-text span{font-size:0.5rem;}
-    .logo-badge{width:40px;height:40px;}
+    .logo-badge{
+      /* Tamaño reducido también para celulares */
+      height: 18px;
+    }
     header a.call-btn{font-size:0.75rem;padding:6px 12px;}
     .hero{padding:40px 4vw 60px;}
     .hero h1{font-size:clamp(2rem,12vw,2.8rem);}
     .hero .sub-title{font-size:1rem;}
     .hero p.tag{font-size:0.95rem;}
+    .hero-logo-container{padding:0;}
+    .hero-logo{max-width:150px;}
     .info-item{padding:14px 16px;gap:10px;}
     .info-item .value{font-size:0.85rem;}
     section{padding:50px 4vw;}
@@ -421,7 +435,7 @@
 <header>
   <div class="logo-mark">
     <div class="logo-badge">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaL0t2GtWj8J5KQ0f8a4A-W89XG4di5N-olj4o3jVFew&s=10" alt="Neo Cell Logo">
+      <img src="https://i.ibb.co/svgYcgcx/a037132b-ada4-464a-a391-917384b25092-removebg-preview-1.png" alt="Logo Neo Cell" border="0">
     </div>
     <div class="logo-text">NEO CELL<span>Servicio Técnico</span></div>
   </div>
@@ -451,7 +465,7 @@
     </div>
   </div>
   <div class="hero-logo-container">
-    <img class="hero-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaL0t2GtWj8J5KQ0f8a4A-W89XG4di5N-olj4o3jVFew&s=10" alt="Neo Cell Logo">
+    <img class="hero-logo" src="https://i.ibb.co/svgYcgcx/a037132b-ada4-464a-a391-917384b25092-removebg-preview-1.png" alt="Logo Neo Cell Grande" border="0">
   </div>
 </section>
 
@@ -525,7 +539,6 @@
     <span class="brand-chip">OPPO</span>
     <span class="brand-chip">SONY</span>
     <span class="brand-chip">MEIZU</span>
-    <!-- Repetimos para efecto infinito -->
     <span class="brand-chip">SAMSUNG</span>
     <span class="brand-chip">XIAOMI</span>
     <span class="brand-chip">APPLE</span>
@@ -607,11 +620,11 @@
     <div class="addr-line"><span class="dot">●</span><span><b>Local:</b> Comercial Grigotá, Pasillo B, Local 23</span></div>
     <div class="addr-line"><span class="dot">●</span><span><b>Ciudad:</b> Santa Cruz, Bolivia</span></div>
     <div class="addr-line"><span class="dot">●</span><span><b>Celular:</b> 776-38354</span></div>
-    <a class="btn-primary" style="display:inline-block;margin-top:10px;" href="https://wa.me/59171707412" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    <a class="btn-primary" style="display:inline-block;margin-top:10px;" href="https://wa.me/59177638354" target="_blank" rel="noopener">Escribir por WhatsApp</a>
   </div>
   <div class="map-box">
     <iframe
-      src="https://www.google.com/maps?q=Comercial+Grigot%C3%A1,+Av.+Grigot%C3%A1,+Santa+Cruz+de+la+Sierra,+Bolivia&output=embed"
+      src="https://www.google.com/maps?q=Comercial+Grigot%C3%A1+Ramada,+Santa+Cruz,+Bolivia&output=embed"
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
       allowfullscreen></iframe>
@@ -621,7 +634,7 @@
 <section class="cta-final">
   <h2>¿Tu celular necesita reparación?</h2>
   <p>Escríbenos o llámanos, en Neo Cell le damos solución a tu equipo con 20% de descuento.</p>
-  <a class="phone-big" href="https://wa.me/59171707412" target="_blank" rel="noopener">💬 71707412</a>
+  <a class="phone-big" href="https://wa.me/59177638354" target="_blank" rel="noopener">💬 77638354</a>
 </section>
 
 <footer>
@@ -652,7 +665,7 @@
       '🙋 Nombre: ' + nombre + '\n' +
       '📞 Mi contacto: ' + telefono;
 
-    var url = 'https://wa.me/59171707412?text=' + encodeURIComponent(mensaje);
+    var url = 'https://wa.me/59177638354?text=' + encodeURIComponent(mensaje);
     window.open(url, '_blank');
   });
 </script>
