@@ -6,7 +6,7 @@
 <title>Neo Cell · Servicio Técnico de Celulares · Santa Cruz</title>
 <style>
   :root{
-    /* Colores ORIGINALES restaurados */
+    /* Colores ORIGINALES */
     --verde-oscuro:#0a4f1f;
     --verde:#1d8b3a;
     --verde-brillante:#2ecc71;
@@ -21,7 +21,12 @@
   html{scroll-behavior:smooth;}
   body{
     font-family:'Inter',-apple-system,Segoe UI,Roboto,sans-serif;
-    background:var(--blanco);
+    /* NUEVO FONDO DE IMAGEN APLICADO A TODA LA WEB */
+    background-image: url('https://i.ibb.co/Q3dhr2yG/IMG-20260728-WA0000.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
     color:var(--negro);
     overflow-x:hidden;
   }
@@ -34,7 +39,7 @@
   /* ---------- Header ---------- */
   header{
     position:sticky;top:0;z-index:50;
-    background:var(--negro);
+    background: rgba(20, 20, 20, 0.92); /* Ligeramente transparente */
     display:flex;align-items:center;justify-content:space-between;
     padding:14px 6vw;
     border-bottom:3px solid var(--lima);
@@ -45,9 +50,9 @@
     gap:10px;
   }
   .logo-badge{
-    /* Tamaño pequeño como acompañamiento */
+    /* Tamaño AÚN MÁS PEQUEÑO como acompañamiento */
     width: auto;
-    height: 22px; 
+    height: 16px; /* Reducido de 22px a 16px */
     background: transparent !important;
     box-shadow:none;
     display:flex;
@@ -89,9 +94,8 @@
   /* ---------- Hero ---------- */
   .hero{
     position:relative;
-    background:
-      radial-gradient(circle at 15% 20%, rgba(174,228,54,0.35), transparent 45%),
-      linear-gradient(160deg, var(--verde-oscuro) 0%, var(--verde) 55%, var(--lima) 130%);
+    /* El fondo ahora es un degradado semi-transparente para ver la imagen de fondo atrás */
+    background: linear-gradient(160deg, rgba(10, 79, 31, 0.80) 0%, rgba(29, 139, 58, 0.75) 55%, rgba(168, 230, 62, 0.70) 130%);
     color:var(--blanco);
     padding:70px 6vw 90px;
     display:grid;
@@ -103,7 +107,7 @@
   .hero h1{
     font-size:clamp(2.8rem,7vw,4.8rem);
     line-height:0.92;
-    text-shadow:0 4px 18px rgba(0,0,0,0.25);
+    text-shadow:0 4px 18px rgba(0,0,0,0.35);
   }
   .hero h1 .accent{
     color:var(--amarillo);
@@ -117,7 +121,7 @@
     color:var(--blanco);
     letter-spacing:0.05em;
     margin-top:8px;
-    background:rgba(0,0,0,0.2);
+    background:rgba(0,0,0,0.3);
     display:inline-block;
     padding:4px 18px;
     border-radius:30px;
@@ -128,7 +132,7 @@
     margin-top:20px;
     font-size:1.15rem;
     max-width:480px;
-    color:rgba(255,255,255,0.92);
+    color:rgba(255,255,255,0.95);
     font-weight:500;
   }
   .hero-cta{
@@ -151,7 +155,7 @@
     font-weight:700;text-decoration:none;font-size:1rem;
   }
 
-  /* Hero Logo - Fondo eliminado */
+  /* Hero Logo */
   .hero-logo-container{
     display:flex;
     justify-content:center;
@@ -169,7 +173,7 @@
     height: auto;
     display: block;
     object-fit: contain;
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
     transition:transform .3s ease;
   }
   .hero-logo:hover{
@@ -178,7 +182,7 @@
 
   /* ---------- Info strip ---------- */
   .info-strip{
-    background:var(--negro);
+    background: rgba(20, 20, 20, 0.88); /* Semi-transparente */
     color:var(--blanco);
     display:flex;flex-wrap:wrap;
     justify-content:center;
@@ -210,7 +214,7 @@
   .section-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-top:8px;color:var(--negro);}
 
   /* Services */
-  .services{background:var(--gris);}
+  .services{background: rgba(233, 233, 226, 0.88); } /* Semi-transparente */
   .service-grid{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:22px;max-width:1100px;margin:0 auto;
@@ -220,7 +224,7 @@
     border-radius:16px;
     padding:28px 24px;
     border-left:5px solid var(--lima);
-    box-shadow:0 8px 24px rgba(0,0,0,0.05);
+    box-shadow:0 8px 24px rgba(0,0,0,0.08);
     transition:transform .2s ease, box-shadow .2s ease;
   }
   .service-card:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(0,0,0,0.1);}
@@ -233,7 +237,7 @@
 
   /* Brands marquee */
   .brands{
-    background:var(--verde-oscuro);
+    background: rgba(10, 79, 31, 0.88); /* Semi-transparente */
     padding:50px 0;
     overflow:hidden;
   }
@@ -277,7 +281,7 @@
   .descuento-track span b{color:var(--verde-oscuro);}
 
   /* Formulario de diagnóstico */
-  .diagnostico{background:var(--verde-oscuro);color:var(--blanco);}
+  .diagnostico{background: rgba(10, 79, 31, 0.88); color:var(--blanco);} /* Semi-transparente */
   .diag-wrap{
     max-width:760px;margin:0 auto;
     background:rgba(255,255,255,0.05);
@@ -334,7 +338,7 @@
 
   /* Ubicación */
   .ubicacion{
-    background:var(--negro);
+    background: rgba(20, 20, 20, 0.88); /* Semi-transparente */
     color:var(--blanco);
     display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;
   }
@@ -357,7 +361,7 @@
 
   /* Contacto / CTA final */
   .cta-final{
-    background:linear-gradient(160deg,var(--lima),var(--verde));
+    background: linear-gradient(160deg, rgba(168, 230, 62, 0.88), rgba(29, 139, 58, 0.88)); /* Semi-transparente */
     text-align:center;
     color:var(--negro);
   }
@@ -376,7 +380,8 @@
   }
 
   footer{
-    background:var(--negro);color:rgba(255,255,255,0.6);
+    background: rgba(20, 20, 20, 0.88); /* Semi-transparente */
+    color:rgba(255,255,255,0.6);
     text-align:center;padding:26px 6vw;font-size:0.82rem;
   }
   footer span{color:var(--lima-brillante);font-weight:700;}
@@ -405,7 +410,8 @@
     .logo-text{font-size:1rem;}
     .logo-text span{font-size:0.5rem;}
     .logo-badge{
-      height: 18px;
+      /* Tamaño aún más pequeño en móviles */
+      height: 14px; /* Reducido de 18px a 14px */
     }
     header a.call-btn{font-size:0.75rem;padding:6px 12px;}
     .hero{padding:40px 4vw 60px;}
