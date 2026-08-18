@@ -3,19 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEO CELL · Servicio Técnico de Celulares</title>
+<title>Neo Cell · Servicio Técnico de Celulares · Santa Cruz</title>
 
 <!-- Vista previa al compartir el enlace (WhatsApp, Facebook, etc.) -->
-<meta name="description" content="Toda cotización hecha en esta plataforma tiene un 20% de descuento.">
+<meta name="description" content="Decodificación, flasheo, desbloqueo, software y hardware para todas las marcas de celulares. 20% de descuento en cotizaciones.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://serviciotecniconeocell-eng.github.io/neocell/">
-<meta property="og:title" content="NEO CELL · Servicio Técnico de Celulares">
-<meta property="og:description" content="Toda cotización hecha en esta plataforma tiene un 20% de descuento.">
-<meta property="og:image" content="https://i.ibb.co/svgYcgcx/a037132b-ada4-464a-a391-917384b25092-removebg-preview-1.png">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NEO CELL · Servicio Técnico de Celulares">
-<meta name="twitter:description" content="Toda cotización hecha en esta plataforma tiene un 20% de descuento.">
-<meta name="twitter:image" content="https://i.ibb.co/svgYcgcx/a037132b-ada4-464a-a391-917384b25092-removebg-preview-1.png">
+<meta property="og:title" content="Neo Cell · Servicio Técnico de Celulares · Santa Cruz">
+<meta property="og:description" content="Decodificación, flasheo, desbloqueo, software y hardware para todas las marcas de celulares. 20% de descuento en cotizaciones.">
+<meta property="og:image" content="https://i.ibb.co/BH2YNDXv/neocell-banner-v2-1.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_BO">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Neo Cell · Servicio Técnico de Celulares · Santa Cruz">
+<meta name="twitter:description" content="Decodificación, flasheo, desbloqueo, software y hardware para todas las marcas de celulares. 20% de descuento en cotizaciones.">
+<meta name="twitter:image" content="https://i.ibb.co/BH2YNDXv/neocell-banner-v2-1.png">
 
 <style>
   :root{
@@ -34,7 +38,6 @@
   html{scroll-behavior:smooth;}
   body{
     font-family:'Inter',-apple-system,Segoe UI,Roboto,sans-serif;
-    /* NUEVO FONDO DE IMAGEN APLICADO A TODA LA WEB */
     background-image: url('https://i.ibb.co/Q3dhr2yG/IMG-20260728-WA0000.jpg');
     background-size: cover;
     background-attachment: fixed;
@@ -48,358 +51,96 @@
     font-weight:900;
     letter-spacing:-0.02em;
   }
-
-  /* ---------- Header ---------- */
   header{
     position:sticky;top:0;z-index:50;
-    background: rgba(20, 20, 20, 0.92); /* Ligeramente transparente */
+    background: rgba(20, 20, 20, 0.92);
     display:flex;align-items:center;justify-content:space-between;
     padding:14px 6vw;
     border-bottom:3px solid var(--lima);
   }
-  .logo-mark{
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
+  .logo-mark{display:flex;align-items:center;gap:10px;}
   .logo-badge{
-    /* Tamaño AÚN MÁS PEQUEÑO como acompañamiento */
-    width: auto;
-    height: 16px; /* Reducido de 22px a 16px */
-    background: transparent !important;
-    box-shadow:none;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-    overflow:hidden;
+    width: auto;height: 16px;background: transparent !important;box-shadow:none;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;
   }
-  .logo-badge img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    display:block;
-  }
-  .logo-text{
-    color:var(--blanco);
-    font-size:1.15rem;
-    line-height:1;
-  }
-  .logo-text span{
-    display:block;
-    font-size:0.55rem;
-    color:var(--lima-brillante);
-    letter-spacing:0.18em;
-    font-weight:600;
-    margin-top:3px;
-  }
-  header a.call-btn{
-    background:var(--amarillo);
-    color:var(--negro);
-    padding:9px 18px;
-    border-radius:30px;
-    font-weight:800;
-    text-decoration:none;
-    font-size:0.85rem;
-    white-space:nowrap;
-  }
-
-  /* ---------- Hero ---------- */
+  .logo-badge img{width:100%;height:100%;object-fit:contain;display:block;}
+  .logo-text{color:var(--blanco);font-size:1.15rem;line-height:1;}
+  .logo-text span{display:block;font-size:0.55rem;color:var(--lima-brillante);letter-spacing:0.18em;font-weight:600;margin-top:3px;}
+  header a.call-btn{background:var(--amarillo);color:var(--negro);padding:9px 18px;border-radius:30px;font-weight:800;text-decoration:none;font-size:0.85rem;white-space:nowrap;}
   .hero{
     position:relative;
-    /* El fondo ahora es un degradado semi-transparente para ver la imagen de fondo atrás */
     background: linear-gradient(160deg, rgba(10, 79, 31, 0.80) 0%, rgba(29, 139, 58, 0.75) 55%, rgba(168, 230, 62, 0.70) 130%);
-    color:var(--blanco);
-    padding:70px 6vw 90px;
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:40px;
-    align-items:center;
-    overflow:hidden;
+    color:var(--blanco);padding:70px 6vw 90px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;overflow:hidden;
   }
-  .hero h1{
-    font-size:clamp(2.8rem,7vw,4.8rem);
-    line-height:0.92;
-    text-shadow:0 4px 18px rgba(0,0,0,0.35);
-  }
-  .hero h1 .accent{
-    color:var(--amarillo);
-  }
-  .hero h1 .white{
-    color:var(--blanco);
-  }
+  .hero h1{font-size:clamp(2.8rem,7vw,4.8rem);line-height:0.92;text-shadow:0 4px 18px rgba(0,0,0,0.35);}
+  .hero h1 .accent{color:var(--amarillo);}
+  .hero h1 .white{color:var(--blanco);}
   .hero .sub-title{
-    font-size:1.2rem;
-    font-weight:700;
-    color:var(--blanco);
-    letter-spacing:0.05em;
-    margin-top:8px;
-    background:rgba(0,0,0,0.3);
-    display:inline-block;
-    padding:4px 18px;
-    border-radius:30px;
-    backdrop-filter:blur(4px);
-    border:1px solid rgba(255,255,255,0.15);
+    font-size:1.2rem;font-weight:700;color:var(--blanco);letter-spacing:0.05em;margin-top:8px;
+    background:rgba(0,0,0,0.3);display:inline-block;padding:4px 18px;border-radius:30px;
+    backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.15);
   }
-  .hero p.tag{
-    margin-top:20px;
-    font-size:1.15rem;
-    max-width:480px;
-    color:rgba(255,255,255,0.95);
-    font-weight:500;
-  }
-  .hero-cta{
-    margin-top:34px;
-    display:flex;gap:14px;flex-wrap:wrap;
-  }
-  .btn-primary{
-    background:var(--amarillo);color:var(--negro);
-    padding:16px 26px;border-radius:12px;
-    font-weight:800;text-decoration:none;font-size:1rem;
-    box-shadow:0 8px 0 #c99e00;
-    transition:transform .15s ease;
-  }
+  .hero p.tag{margin-top:20px;font-size:1.15rem;max-width:480px;color:rgba(255,255,255,0.95);font-weight:500;}
+  .hero-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{background:var(--amarillo);color:var(--negro);padding:16px 26px;border-radius:12px;font-weight:800;text-decoration:none;font-size:1rem;box-shadow:0 8px 0 #c99e00;transition:transform .15s ease;}
   .btn-primary:hover{transform:translateY(-2px);}
-  .btn-secondary{
-    background:rgba(0,0,0,0.3);
-    border:1px solid rgba(255,255,255,0.4);
-    color:var(--blanco);
-    padding:16px 26px;border-radius:12px;
-    font-weight:700;text-decoration:none;font-size:1rem;
-  }
-
-  /* Hero Logo */
-  .hero-logo-container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:380px;
-    background: transparent;
-    border-radius: 0;
-    padding: 0;
-    box-shadow: none;
-    border: none;
-  }
-  .hero-logo{
-    max-width: 280px;
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
-    transition:transform .3s ease;
-  }
-  .hero-logo:hover{
-    transform:scale(1.03);
-  }
-
-  /* ---------- Info strip ---------- */
-  .info-strip{
-    background: rgba(20, 20, 20, 0.88); /* Semi-transparente */
-    color:var(--blanco);
-    display:flex;flex-wrap:wrap;
-    justify-content:center;
-    gap:0;
-  }
-  .info-item{
-    flex:1 1 220px;
-    padding:22px 24px;
-    border-right:1px solid rgba(255,255,255,0.08);
-    display:flex;align-items:center;gap:14px;
-  }
+  .btn-secondary{background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.4);color:var(--blanco);padding:16px 26px;border-radius:12px;font-weight:700;text-decoration:none;font-size:1rem;}
+  .hero-logo-container{display:flex;justify-content:center;align-items:center;height:380px;background:transparent;border-radius:0;padding:0;box-shadow:none;border:none;}
+  .hero-logo{max-width:280px;width:100%;height:auto;display:block;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4));transition:transform .3s ease;}
+  .hero-logo:hover{transform:scale(1.03);}
+  .info-strip{background: rgba(20, 20, 20, 0.88);color:var(--blanco);display:flex;flex-wrap:wrap;justify-content:center;gap:0;}
+  .info-item{flex:1 1 220px;padding:22px 24px;border-right:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;gap:14px;}
   .info-item:last-child{border-right:none;}
-  .info-icon{
-    width:42px;height:42px;border-radius:10px;
-    background:var(--lima);
-    display:flex;align-items:center;justify-content:center;
-    font-size:1.2rem;flex-shrink:0;
-  }
+  .info-icon{width:42px;height:42px;border-radius:10px;background:var(--lima);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
   .info-item .label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--lima-brillante);font-weight:700;}
   .info-item .value{font-size:0.98rem;font-weight:700;}
-
-  /* ---------- Sections ---------- */
   section{padding:80px 6vw;}
   .section-head{max-width:640px;margin:0 auto 50px;text-align:center;}
-  .section-head .kicker{
-    color:var(--verde);font-weight:800;letter-spacing:0.14em;
-    text-transform:uppercase;font-size:0.78rem;
-  }
+  .section-head .kicker{color:var(--verde);font-weight:800;letter-spacing:0.14em;text-transform:uppercase;font-size:0.78rem;}
   .section-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-top:8px;color:var(--negro);}
-
-  /* Services */
-  .services{background: rgba(233, 233, 226, 0.88); } /* Semi-transparente */
-  .service-grid{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:22px;max-width:1100px;margin:0 auto;
-  }
-  .service-card{
-    background:var(--blanco);
-    border-radius:16px;
-    padding:28px 24px;
-    border-left:5px solid var(--lima);
-    box-shadow:0 8px 24px rgba(0,0,0,0.08);
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
+  .services{background: rgba(233, 233, 226, 0.88); }
+  .service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;max-width:1100px;margin:0 auto;}
+  .service-card{background:var(--blanco);border-radius:16px;padding:28px 24px;border-left:5px solid var(--lima);box-shadow:0 8px 24px rgba(0,0,0,0.08);transition:transform .2s ease, box-shadow .2s ease;}
   .service-card:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(0,0,0,0.1);}
-  .service-card .num{
-    font-family:'Arial Black',sans-serif;
-    font-size:0.75rem;color:var(--lima);font-weight:900;letter-spacing:0.1em;
-  }
+  .service-card .num{font-family:'Arial Black',sans-serif;font-size:0.75rem;color:var(--lima);font-weight:900;letter-spacing:0.1em;}
   .service-card h3{font-size:1.15rem;margin:8px 0 8px;color:var(--negro);}
   .service-card p{font-size:0.92rem;color:#555;line-height:1.5;}
-
-  /* Brands marquee */
-  .brands{
-    background: rgba(10, 79, 31, 0.88); /* Semi-transparente */
-    padding:50px 0;
-    overflow:hidden;
-  }
+  .brands{background: rgba(10, 79, 31, 0.88);padding:50px 0;overflow:hidden;}
   .brands h2{text-align:center;color:var(--blanco);margin-bottom:30px;font-size:1.5rem;}
-  .marquee-track{
-    display:flex;gap:50px;
-    width:max-content;
-    animation:scroll 22s linear infinite;
-  }
-  @keyframes scroll{
-    from{transform:translateX(0);}
-    to{transform:translateX(-50%);}
-  }
-  .brand-chip{
-    color:var(--lima-brillante);
-    font-family:'Arial Black',sans-serif;
-    font-size:1.3rem;
-    font-weight:900;
-    letter-spacing:0.02em;
-    opacity:0.9;
-    white-space:nowrap;
-  }
-
-  /* Banner de descuento */
-  .descuento-banner{
-    background:var(--amarillo);
-    color:var(--negro);
-    overflow:hidden;
-    border-top:2px solid var(--negro);
-    border-bottom:2px solid var(--negro);
-  }
-  .descuento-track{
-    display:flex;gap:60px;width:max-content;
-    padding:10px 0;
-    animation:scroll 16s linear infinite;
-  }
-  .descuento-track span{
-    font-weight:900;font-size:0.95rem;letter-spacing:0.03em;
-    white-space:nowrap;
-  }
+  .marquee-track{display:flex;gap:50px;width:max-content;animation:scroll 22s linear infinite;}
+  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .brand-chip{color:var(--lima-brillante);font-family:'Arial Black',sans-serif;font-size:1.3rem;font-weight:900;letter-spacing:0.02em;opacity:0.9;white-space:nowrap;}
+  .descuento-banner{background:var(--amarillo);color:var(--negro);overflow:hidden;border-top:2px solid var(--negro);border-bottom:2px solid var(--negro);}
+  .descuento-track{display:flex;gap:60px;width:max-content;padding:10px 0;animation:scroll 16s linear infinite;}
+  .descuento-track span{font-weight:900;font-size:0.95rem;letter-spacing:0.03em;white-space:nowrap;}
   .descuento-track span b{color:var(--verde-oscuro);}
-
-  /* Formulario de diagnóstico */
-  .diagnostico{background: rgba(10, 79, 31, 0.88); color:var(--blanco);} /* Semi-transparente */
-  .diag-wrap{
-    max-width:760px;margin:0 auto;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(174,228,54,0.35);
-    border-radius:22px;
-    padding:36px;
-  }
-  .diag-badge{
-    display:inline-block;background:var(--amarillo);color:var(--negro);
-    font-weight:900;font-size:0.75rem;padding:6px 14px;border-radius:20px;
-    margin-bottom:14px;letter-spacing:0.04em;
-  }
+  .diagnostico{background: rgba(10, 79, 31, 0.88); color:var(--blanco);}
+  .diag-wrap{max-width:760px;margin:0 auto;background:rgba(255,255,255,0.05);border:1px solid rgba(174,228,54,0.35);border-radius:22px;padding:36px;}
+  .diag-badge{display:inline-block;background:var(--amarillo);color:var(--negro);font-weight:900;font-size:0.75rem;padding:6px 14px;border-radius:20px;margin-bottom:14px;letter-spacing:0.04em;}
   .form-row{margin-bottom:20px;}
-  .form-row label{
-    display:block;font-size:0.8rem;font-weight:700;
-    color:var(--lima-brillante);text-transform:uppercase;letter-spacing:0.08em;
-    margin-bottom:8px;
-  }
-  .form-row select, .form-row input[type="text"], .form-row input[type="tel"]{
-    width:100%;padding:13px 14px;border-radius:10px;
-    border:1px solid rgba(255,255,255,0.2);
-    background:rgba(255,255,255,0.08);color:var(--blanco);
-    font-size:0.95rem;font-family:inherit;
-  }
+  .form-row label{display:block;font-size:0.8rem;font-weight:700;color:var(--lima-brillante);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
+  .form-row select, .form-row input[type="text"], .form-row input[type="tel"]{width:100%;padding:13px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:var(--blanco);font-size:0.95rem;font-family:inherit;}
   .form-row select option{color:var(--negro);}
-  .fallas-grid{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-    gap:10px;
-  }
-  .falla-chip{
-    display:flex;align-items:center;gap:9px;
-    background:rgba(255,255,255,0.06);
-    border:1px solid rgba(255,255,255,0.15);
-    border-radius:10px;padding:11px 12px;
-    cursor:pointer;font-size:0.9rem;font-weight:600;
-    transition:border-color .15s ease, background .15s ease;
-  }
-  .falla-chip:has(input:checked){
-    border-color:var(--lima-brillante);
-    background:rgba(174,228,54,0.15);
-  }
+  .fallas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;}
+  .falla-chip{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:11px 12px;cursor:pointer;font-size:0.9rem;font-weight:600;transition:border-color .15s ease, background .15s ease;}
+  .falla-chip:has(input:checked){border-color:var(--lima-brillante);background:rgba(174,228,54,0.15);}
   .falla-chip input{accent-color:var(--lima-brillante);width:16px;height:16px;flex-shrink:0;}
-  .btn-whatsapp{
-    width:100%;margin-top:8px;
-    background:#25D366;color:#06210f;
-    border:none;padding:17px;border-radius:12px;
-    font-weight:900;font-size:1.02rem;cursor:pointer;
-    display:flex;align-items:center;justify-content:center;gap:10px;
-    box-shadow:0 6px 0 #128c43;
-    transition:transform .15s ease;
-  }
+  .btn-whatsapp{width:100%;margin-top:8px;background:#25D366;color:#06210f;border:none;padding:17px;border-radius:12px;font-weight:900;font-size:1.02rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 6px 0 #128c43;transition:transform .15s ease;}
   .btn-whatsapp:hover{transform:translateY(-2px);}
   .diag-note{font-size:0.78rem;color:rgba(255,255,255,0.6);margin-top:12px;text-align:center;}
-
-  /* Ubicación */
-  .ubicacion{
-    background: rgba(20, 20, 20, 0.88); /* Semi-transparente */
-    color:var(--blanco);
-    display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;
-  }
-  .ubicacion .map-box{
-    border-radius:18px;
-    height:300px;
-    border:2px solid var(--lima);
-    position:relative;
-    overflow:hidden;
-  }
-  .ubicacion .map-box iframe{
-    width:100%;height:100%;border:0;filter:grayscale(0.15) contrast(1.05);
-  }
+  .ubicacion{background: rgba(20, 20, 20, 0.88);color:var(--blanco);display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+  .ubicacion .map-box{border-radius:18px;height:300px;border:2px solid var(--lima);position:relative;overflow:hidden;}
+  .ubicacion .map-box iframe{width:100%;height:100%;border:0;filter:grayscale(0.15) contrast(1.05);}
   .ubicacion h2{color:var(--blanco);font-size:2rem;margin-bottom:18px;}
-  .ubicacion .addr-line{
-    display:flex;gap:12px;margin-bottom:16px;font-size:1.02rem;
-  }
+  .ubicacion .addr-line{display:flex;gap:12px;margin-bottom:16px;font-size:1.02rem;}
   .ubicacion .addr-line b{color:var(--lima-brillante);}
   .ubicacion .dot{color:var(--amarillo);}
-
-  /* Contacto / CTA final */
-  .cta-final{
-    background: linear-gradient(160deg, rgba(168, 230, 62, 0.88), rgba(29, 139, 58, 0.88)); /* Semi-transparente */
-    text-align:center;
-    color:var(--negro);
-  }
+  .cta-final{background: linear-gradient(160deg, rgba(168, 230, 62, 0.88), rgba(29, 139, 58, 0.88));text-align:center;color:var(--negro);}
   .cta-final h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:14px;}
   .cta-final p{font-size:1.05rem;margin-bottom:30px;font-weight:600;}
-  .phone-big{
-    font-size:clamp(2rem,5vw,3rem);
-    font-weight:900;
-    color:var(--negro);
-    background:var(--amarillo);
-    display:inline-block;
-    padding:16px 34px;
-    border-radius:16px;
-    text-decoration:none;
-    box-shadow:0 8px 0 rgba(0,0,0,0.2);
-  }
-
-  footer{
-    background: rgba(20, 20, 20, 0.88); /* Semi-transparente */
-    color:rgba(255,255,255,0.6);
-    text-align:center;padding:26px 6vw;font-size:0.82rem;
-  }
+  .phone-big{font-size:clamp(2rem,5vw,3rem);font-weight:900;color:var(--negro);background:var(--amarillo);display:inline-block;padding:16px 34px;border-radius:16px;text-decoration:none;box-shadow:0 8px 0 rgba(0,0,0,0.2);}
+  footer{background: rgba(20, 20, 20, 0.88);color:rgba(255,255,255,0.6);text-align:center;padding:26px 6vw;font-size:0.82rem;}
   footer span{color:var(--lima-brillante);font-weight:700;}
-
-  /* ---------- Responsive Móvil ---------- */
   @media (max-width:820px){
     .hero{grid-template-columns:1fr;padding-top:40px;text-align:center;}
     .hero h1{font-size:clamp(2.4rem,10vw,3.6rem);}
@@ -417,15 +158,11 @@
     .phone-big{padding:14px 24px;}
     .brand-chip{font-size:1rem;}
   }
-
   @media (max-width:480px){
     header{padding:10px 4vw;flex-wrap:wrap;gap:8px;}
     .logo-text{font-size:1rem;}
     .logo-text span{font-size:0.5rem;}
-    .logo-badge{
-      /* Tamaño aún más pequeño en móviles */
-      height: 14px; /* Reducido de 18px a 14px */
-    }
+    .logo-badge{height: 14px;}
     header a.call-btn{font-size:0.75rem;padding:6px 12px;}
     .hero{padding:40px 4vw 60px;}
     .hero h1{font-size:clamp(2rem,12vw,2.8rem);}
