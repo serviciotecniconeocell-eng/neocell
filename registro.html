@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neo Cell · Registro de trabajos terminados</title>
+<meta name="robots" content="noindex, nofollow">
+
+<style>
+  :root{
+    --verde-oscuro:#0a4f1f;
+    --verde:#1d8b3a;
+    --lima:#a8e63e;
+    --lima-brillante:#c4f06a;
+    --amarillo:#ffcf2e;
+    --negro:#141414;
+    --gris:#e9e9e2;
+    --blanco:#fdfdf7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Inter',-apple-system,Segoe UI,Roboto,sans-serif;
+    background:linear-gradient(160deg,var(--verde-oscuro) 0%,var(--verde) 55%,#123 130%);
+    background:linear-gradient(160deg,#0a4f1f 0%,#1d8b3a 60%,#0a4f1f 130%);
+    min-height:100vh;
+    color:var(--blanco);
+    display:flex;
+    justify-content:center;
+    padding:32px 16px 60px;
+  }
+  .card{
+    width:100%;max-width:520px;
+    background:rgba(20,20,20,0.55);
+    border:1px solid rgba(174,228,54,0.35);
+    border-radius:22px;
+    padding:30px 26px 26px;
+    backdrop-filter:blur(6px);
+  }
+  .brand-row{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+  .brand-row img{height:18px;}
+  .brand-row span{font-family:'Arial Black',Impact,sans-serif;font-weight:900;font-size:1.1rem;letter-spacing:-0.01em;}
+  h1{font-family:'Arial Black',Impact,sans-serif;font-size:1.5rem;line-height:1.15;margin:14px 0 4px;}
+  .sub{color:var(--lima-brillante);font-size:0.85rem;font-weight:600;margin-bottom:22px;}
+  .fecha-auto{
+    display:flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:10px;
+    padding:11px 14px;
+    font-size:0.85rem;
+    color:rgba(255,255,255,0.85);
+    margin-bottom:22px;
+  }
+  .fecha-auto b{color:var(--lima-brillante);}
+  .form-row{margin-bottom:18px;}
+  .form-row label{display:block;font-size:0.78rem;font-weight:700;color:var(--lima-brillante);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:7px;}
+  select, textarea, input[type="text"]{
+    width:100%;padding:12px 13px;border-radius:10px;
+    border:1px solid rgba(255,255,255,0.2);
+    background:rgba(255,255,255,0.08);
+    color:var(--blanco);font-size:0.95rem;font-family:inherit;
+  }
+  select option{color:var(--negro);}
+  textarea{resize:vertical;min-height:70px;}
+  ::placeholder{color:rgba(255,255,255,0.45);}
+  .btn-guardar{
+    width:100%;margin-top:6px;
+    background:var(--amarillo);color:var(--negro);border:none;
+    padding:16px;border-radius:12px;font-weight:900;font-size:1rem;
+    cursor:pointer;box-shadow:0 6px 0 #c99e00;transition:transform .15s ease;
+  }
+  .btn-guardar:hover{transform:translateY(-2px);}
+  .btn-guardar:disabled{opacity:0.6;cursor:default;transform:none;}
+  .msg-ok{
+    display:none;margin-top:16px;background:rgba(37,211,102,0.15);
+    border:1px solid #25D366;color:#c9ffe0;padding:13px 14px;
+    border-radius:10px;font-size:0.9rem;font-weight:600;
+  }
+  .msg-ok.show{display:block;}
+  .hint{font-size:0.72rem;color:rgba(255,255,255,0.5);margin-top:10px;text-align:center;}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="brand-row">
+    <img src="https://i.ibb.co/svgYcgcx/a037132b-ada4-464a-a391-917384b25092-removebg-preview-1.png" alt="Neo Cell">
+    <span>NEO CELL</span>
+  </div>
+  <h1>Registro de trabajo terminado</h1>
+  <div class="sub">Solo para uso interno del equipo técnico</div>
+
+  <div class="fecha-auto">
+    🕒 Se guardará con la fecha y hora de <b>hoy, <span id="fecha-hoy"></span></b> — no necesitas escribirla.
+  </div>
+
+  <form id="form-registro">
+    <div class="form-row">
+      <label for="trabajador">¿Quién hizo el trabajo?</label>
+      <select id="trabajador" required>
+        <option value="" disabled selected>Selecciona tu nombre</option>
+        <!-- 👇 Edita esta lista con los nombres de tu equipo -->
+        <option value="Adán">Adán</option>
+        <option value="Yon">Yon</option>
+        <option value="Carlos">Carlos</option>
+        <option value="Oliver">Oliver</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label for="marca">Marca / modelo del celular</label>
+      <select id="marca" required>
+        <option value="" disabled selected>Selecciona la marca</option>
+        <option value="Samsung">Samsung</option>
+        <option value="Xiaomi">Xiaomi</option>
+        <option value="Apple">Apple / iPhone</option>
+        <option value="Honor">Honor</option>
+        <option value="Tecno">Tecno</option>
+        <option value="Infinix">Infinix</option>
+        <option value="Motorola">Motorola</option>
+        <option value="Realme">Realme</option>
+        <option value="Huawei">Huawei</option>
+        <option value="ZTE">ZTE</option>
+        <option value="Oppo">Oppo</option>
+        <option value="Sony">Sony</option>
+        <option value="Meizu">Meizu</option>
+        <option value="Otra">Otra marca</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label for="falla">Tipo de reparación realizada</label>
+      <select id="falla" required>
+        <option value="" disabled selected>Selecciona el tipo</option>
+        <option value="Cambio de glass">Cambio de glass</option>
+        <option value="Cambio de pantalla">Cambio de pantalla</option>
+        <option value="Batería">Batería</option>
+        <option value="Pin/entrada de carga">Pin/entrada de carga</option>
+        <option value="Micrófono">Micrófono</option>
+        <option value="Parlante">Parlante</option>
+        <option value="Cámara">Cámara</option>
+        <option value="Placa (hardware)">Placa (hardware)</option>
+        <option value="Software / Flasheo">Software / Flasheo</option>
+        <option value="Decodificación">Decodificación</option>
+        <option value="Desbloqueo">Desbloqueo</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </div>
+
+    <div class="form-row" id="fila-otro" style="display:none;">
+      <label for="falla-otro">Especifica el tipo de reparación</label>
+      <input type="text" id="falla-otro" placeholder="Ej: cambio de conector...">
+    </div>
+
+    <div class="form-row">
+      <label for="notas">Notas (opcional)</label>
+      <textarea id="notas" placeholder="Cualquier detalle extra del trabajo..."></textarea>
+    </div>
+
+    <button type="submit" class="btn-guardar" id="btn-guardar">Guardar trabajo terminado</button>
+    <div class="msg-ok" id="msg-ok">✅ Trabajo guardado correctamente.</div>
+    <p class="hint">Los datos se guardan directo en la planilla de control de Neo Cell.</p>
+  </form>
+</div>
+
+<!-- iframe oculto: así se envían los datos a Google sin salir de esta página -->
+<iframe name="destino-oculto" style="display:none;"></iframe>
+
+<script>
+  // 👉 Pega aquí la URL de tu Apps Script (la que termina en /exec)
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxzCWHKqRhILU7shOtBCYD0OBtcHYrIxZRGuyow7_c_sgsDZQEAlrSFCEUvccXbG891/exec";
+
+  document.getElementById('fecha-hoy').textContent = new Date().toLocaleDateString('es-BO', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  });
+
+  const fallaSelect = document.getElementById('falla');
+  const filaOtro = document.getElementById('fila-otro');
+  fallaSelect.addEventListener('change', function () {
+    filaOtro.style.display = (fallaSelect.value === 'Otro') ? 'block' : 'none';
+  });
+
+  const form = document.getElementById('form-registro');
+  const btn = document.getElementById('btn-guardar');
+  const msgOk = document.getElementById('msg-ok');
+  const iframeOculto = document.querySelector('iframe[name="destino-oculto"]');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const trabajador = document.getElementById('trabajador').value;
+    const marca = document.getElementById('marca').value;
+    let falla = fallaSelect.value;
+    if (falla === 'Otro') {
+      falla = document.getElementById('falla-otro').value.trim() || 'Otro';
+    }
+    const notas = document.getElementById('notas').value.trim();
+
+    if (!trabajador || !marca || !falla) {
+      alert('Por favor completa quién hizo el trabajo, la marca y el tipo de reparación.');
+      return;
+    }
+
+    const params = new URLSearchParams({
+      action: 'registrar',
+      trabajador: trabajador,
+      marca: marca,
+      falla: falla,
+      notas: notas
+    });
+
+    btn.disabled = true;
+    btn.textContent = 'Guardando...';
+
+    iframeOculto.src = APPS_SCRIPT_URL + '?' + params.toString();
+
+    // El iframe se envía en segundo plano; confirmamos a los pocos segundos.
+    setTimeout(function () {
+      msgOk.classList.add('show');
+      btn.disabled = false;
+      btn.textContent = 'Guardar trabajo terminado';
+
+      // Reiniciamos casi todo, pero dejamos seleccionado al mismo trabajador
+      // por si va a registrar otro trabajo seguido.
+      const trabajadorActual = document.getElementById('trabajador').value;
+      form.reset();
+      document.getElementById('trabajador').value = trabajadorActual;
+      filaOtro.style.display = 'none';
+
+      setTimeout(function () { msgOk.classList.remove('show'); }, 4000);
+    }, 1200);
+  });
+</script>
+</body>
+</html>
