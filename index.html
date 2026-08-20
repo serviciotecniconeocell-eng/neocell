@@ -9,14 +9,16 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://serviciotecniconeocell-eng.github.io/neocell/">
 <meta property="og:title" content="Neo Cell">
-<meta property="og:image" content="https://i.ibb.co/XfhKzsVw/neocell-banner-texto-mismo-tamano.png">
+<!-- CAMBIO: la imagen de vista previa ahora es tu banner -->
+<meta property="og:image" content="https://raw.githubusercontent.com/serviciotecniconeocell-eng/neocell/main/bnestect.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="es_BO">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Neo Cell">
-<meta name="twitter:image" content="https://i.ibb.co/XfhKzsVw/neocell-banner-texto-mismo-tamano.png">
+<!-- CAMBIO: también en Twitter -->
+<meta name="twitter:image" content="https://raw.githubusercontent.com/serviciotecniconeocell-eng/neocell/main/bnestect.png">
 
 <style>
   :root{
@@ -77,8 +79,21 @@
   .btn-primary{background:var(--amarillo);color:var(--negro);padding:16px 26px;border-radius:12px;font-weight:800;text-decoration:none;font-size:1rem;box-shadow:0 8px 0 #c99e00;transition:transform .15s ease;}
   .btn-primary:hover{transform:translateY(-2px);}
   .btn-secondary{background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.4);color:var(--blanco);padding:16px 26px;border-radius:12px;font-weight:700;text-decoration:none;font-size:1rem;}
-  .hero-logo-container{display:flex;justify-content:center;align-items:center;height:380px;background:transparent;border-radius:0;padding:0;box-shadow:none;border:none;}
-  .hero-logo{max-width:280px;width:100%;height:auto;display:block;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4));transition:transform .3s ease;}
+  .hero-logo-container{
+    display:flex;justify-content:center;align-items:center;
+    height:380px;background:transparent;border-radius:0;padding:0;box-shadow:none;border:none;
+  }
+  .hero-logo{
+    max-width:100%;   /* Cambiado para que ocupe el ancho del contenedor */
+    max-height:100%;
+    width:auto;
+    height:auto;
+    display:block;
+    object-fit:contain;
+    filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    transition:transform .3s ease;
+    border-radius:12px; /* opcional, para darle un estilo más amigable */
+  }
   .hero-logo:hover{transform:scale(1.03);}
   .info-strip{background: rgba(20, 20, 20, 0.88);color:var(--blanco);display:flex;flex-wrap:wrap;justify-content:center;gap:0;}
   .info-item{flex:1 1 220px;padding:22px 24px;border-right:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;gap:14px;}
@@ -175,7 +190,7 @@
     .hero p.tag{max-width:100%;margin-left:auto;margin-right:auto;}
     .hero-cta{justify-content:center;}
     .hero-logo-container{height:auto;margin-top:20px;}
-    .hero-logo{max-width:200px;margin:0 auto;}
+    .hero-logo{max-width:80%;margin:0 auto;}
     .ubicacion{grid-template-columns:1fr;text-align:center;}
     .ubicacion .addr-line{justify-content:center;}
     .info-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);}
@@ -198,7 +213,7 @@
     .hero h1{font-size:clamp(2rem,12vw,2.8rem);}
     .hero p.tag{font-size:0.95rem;}
     .hero-logo-container{padding:0;}
-    .hero-logo{max-width:150px;}
+    .hero-logo{max-width:90%;}
     .info-item{padding:14px 16px;gap:10px;}
     .info-item .value{font-size:0.85rem;}
     section{padding:50px 4vw;}
@@ -251,7 +266,8 @@
     </div>
   </div>
   <div class="hero-logo-container">
-    <img class="hero-logo" src="https://i.ibb.co/svgYcgcx/a037132b-ada4-464a-a391-917384b25092-removebg-preview-1.png" alt="Logo Neo Cell Grande" border="0">
+    <!-- CAMBIO: uso tu banner como imagen principal del héroe -->
+    <img class="hero-logo" src="https://raw.githubusercontent.com/serviciotecniconeocell-eng/neocell/main/bnestect.png" alt="Banner Neo Cell" border="0">
   </div>
 </section>
 
