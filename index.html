@@ -9,7 +9,6 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://serviciotecniconeocell-eng.github.io/neocell/">
 <meta property="og:title" content="Neo Cell">
-<!-- CAMBIO: la imagen de vista previa ahora es tu banner -->
 <meta property="og:image" content="https://raw.githubusercontent.com/serviciotecniconeocell-eng/neocell/main/bnestect.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -17,7 +16,6 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Neo Cell">
-<!-- CAMBIO: también en Twitter -->
 <meta name="twitter:image" content="https://raw.githubusercontent.com/serviciotecniconeocell-eng/neocell/main/bnestect.png">
 
 <style>
@@ -32,6 +30,8 @@
     --negro:#141414;
     --gris:#e9e9e2;
     --blanco:#fdfdf7;
+    /* Color dinámico del técnico seleccionado (por defecto amarillo) */
+    --tec-color:#ffcf2e;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -84,7 +84,7 @@
     height:380px;background:transparent;border-radius:0;padding:0;box-shadow:none;border:none;
   }
   .hero-logo{
-    max-width:100%;   /* Cambiado para que ocupe el ancho del contenedor */
+    max-width:100%;
     max-height:100%;
     width:auto;
     height:auto;
@@ -92,7 +92,7 @@
     object-fit:contain;
     filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4));
     transition:transform .3s ease;
-    border-radius:12px; /* opcional, para darle un estilo más amigable */
+    border-radius:12px;
   }
   .hero-logo:hover{transform:scale(1.03);}
   .info-strip{background: rgba(20, 20, 20, 0.88);color:var(--blanco);display:flex;flex-wrap:wrap;justify-content:center;gap:0;}
@@ -123,7 +123,13 @@
     width:130px;height:130px;border-radius:50%;overflow:hidden;margin:0 auto 14px;
     border:4px solid var(--color-tec);box-shadow:0 0 0 5px rgba(255,255,255,0.08);
   }
-  .tecnico-foto img{width:100%;height:100%;object-fit:cover;display:block;}
+  .tecnico-foto img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+  /* Ajuste específico: la foto de Adán tiene fondo cuadrado visible por detrás,
+     así que hacemos zoom sobre la imagen para que el círculo recorte solo el rostro. */
+  .tecnico-foto img.foto-ajustada{
+    transform:scale(1.55);
+    transform-origin:center 38%;
+  }
   .tecnico-role{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.14em;font-weight:800;color:var(--color-tec);}
   .tecnico-card h3{color:var(--blanco);font-size:1.05rem;margin-top:6px;}
   .tecnico-tap{margin-top:10px;font-size:0.78rem;color:rgba(255,255,255,0.75);font-weight:600;}
@@ -159,28 +165,33 @@
   footer{background: rgba(20, 20, 20, 0.88);color:rgba(255,255,255,0.6);text-align:center;padding:26px 6vw;font-size:0.82rem;}
   footer span{color:var(--lima-brillante);font-weight:700;}
 
-  /* --- Modal de diagnóstico --- */
+  /* --- Modal de diagnóstico (cambia de color según el técnico elegido) --- */
   .modal-overlay{
     position:fixed;inset:0;background:rgba(0,0,0,0.65);display:none;
     align-items:center;justify-content:center;z-index:100;padding:20px;
   }
   .modal-overlay.active{display:flex;}
   .modal-box{
-    background: linear-gradient(160deg, var(--verde-oscuro), var(--verde));
-    border:1px solid rgba(174,228,54,0.35);border-radius:22px;padding:32px;
+    background: linear-gradient(160deg, var(--negro) 0%, color-mix(in srgb, var(--tec-color) 32%, var(--negro)) 100%);
+    border:2px solid var(--tec-color);border-radius:22px;padding:32px;
     max-width:520px;width:100%;max-height:90vh;overflow-y:auto;position:relative;color:var(--blanco);
+    transition:background .25s ease, border-color .25s ease;
   }
   .modal-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.12);border:none;color:var(--blanco);width:34px;height:34px;border-radius:50%;font-size:1.1rem;cursor:pointer;}
-  .diag-badge{display:inline-block;background:var(--amarillo);color:var(--negro);font-weight:900;font-size:0.75rem;padding:6px 14px;border-radius:20px;margin-bottom:14px;letter-spacing:0.04em;}
+  .diag-badge{display:inline-block;background:var(--tec-color);color:var(--negro);font-weight:900;font-size:0.75rem;padding:6px 14px;border-radius:20px;margin-bottom:14px;letter-spacing:0.04em;transition:background .25s ease;}
+  .modal-box .kicker{color:var(--tec-color) !important;transition:color .25s ease;}
   .form-row{margin-bottom:20px;}
-  .form-row label{display:block;font-size:0.8rem;font-weight:700;color:var(--lima-brillante);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
+  .form-row label{display:block;font-size:0.8rem;font-weight:700;color:var(--tec-color);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;transition:color .25s ease;}
   .form-row select, .form-row input[type="text"], .form-row input[type="tel"]{width:100%;padding:13px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:var(--blanco);font-size:0.95rem;font-family:inherit;}
+  .form-row select:focus, .form-row input:focus{outline:none;border-color:var(--tec-color);}
   .form-row select option{color:var(--negro);}
   .fallas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
   .falla-chip{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:11px 12px;cursor:pointer;font-size:0.88rem;font-weight:600;transition:border-color .15s ease, background .15s ease;}
-  .falla-chip:has(input:checked){border-color:var(--lima-brillante);background:rgba(174,228,54,0.15);}
-  .falla-chip input{accent-color:var(--lima-brillante);width:16px;height:16px;flex-shrink:0;}
-  .btn-whatsapp{width:100%;margin-top:8px;background:#25D366;color:#06210f;border:none;padding:17px;border-radius:12px;font-weight:900;font-size:1.02rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 6px 0 #128c43;transition:transform .15s ease;}
+  .falla-chip:has(input:checked){border-color:var(--tec-color);background:rgba(255,255,255,0.12);}
+  .falla-chip input{accent-color:var(--tec-color);width:16px;height:16px;flex-shrink:0;}
+  .otra-falla-detalle{display:none;margin-top:12px;}
+  .otra-falla-detalle.visible{display:block;}
+  .btn-whatsapp{width:100%;margin-top:8px;background:#25D366;color:#06210f;border:none;border-top:4px solid var(--tec-color);padding:17px;border-radius:12px;font-weight:900;font-size:1.02rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 6px 0 #128c43;transition:transform .15s ease, border-color .25s ease;}
   .btn-whatsapp:hover{transform:translateY(-2px);}
   .diag-note{font-size:0.78rem;color:rgba(255,255,255,0.6);margin-top:12px;text-align:center;}
 
@@ -266,7 +277,6 @@
     </div>
   </div>
   <div class="hero-logo-container">
-    <!-- CAMBIO: uso tu banner como imagen principal del héroe -->
     <img class="hero-logo" src="https://raw.githubusercontent.com/serviciotecniconeocell-eng/neocell/main/bnestect.png" alt="Banner Neo Cell" border="0">
   </div>
 </section>
@@ -294,25 +304,25 @@
     <div class="aviso">👉 Presiona la foto del técnico que prefieras para hacer tu diagnóstico gratis por WhatsApp</div>
   </div>
   <div class="tecnico-grid">
-    <div class="tecnico-card" style="--color-tec:var(--amarillo)" onclick="abrirDiagnostico('Adán Paredes','77638354')">
-      <div class="tecnico-foto"><img src="https://raw.githubusercontent.com/serviciotecniconeocell-eng/neocell/main/adan.png" alt="Técnico Adán Paredes"></div>
+    <div class="tecnico-card" style="--color-tec:#ffcf2e" onclick="abrirDiagnostico('Adán Paredes','77638354','#ffcf2e')">
+      <div class="tecnico-foto"><img class="foto-ajustada" src="https://raw.githubusercontent.com/serviciotecniconeocell-eng/neocell/main/aadan.png" alt="Técnico Adán Paredes"></div>
       <div class="tecnico-role">Técnico</div>
       <h3>Adán Paredes</h3>
       <div class="tecnico-tap">Toca la foto para <b>cotizar</b></div>
     </div>
-    <div class="tecnico-card" style="--color-tec:var(--verde-brillante)" onclick="abrirDiagnostico('Carlos Paredes','73166242')">
+    <div class="tecnico-card" style="--color-tec:#2ecc71" onclick="abrirDiagnostico('Carlos Paredes','73166242','#2ecc71')">
       <div class="tecnico-foto"><img src="https://raw.githubusercontent.com/serviciotecniconeocell-eng/neocell/main/carlos.jpg" alt="Técnico Carlos Paredes"></div>
       <div class="tecnico-role">Técnico</div>
       <h3>Carlos Paredes</h3>
       <div class="tecnico-tap">Toca la foto para <b>cotizar</b></div>
     </div>
-    <div class="tecnico-card" style="--color-tec:var(--lima-brillante)" onclick="abrirDiagnostico('Roli Villarroel','67886652')">
+    <div class="tecnico-card" style="--color-tec:#c4f06a" onclick="abrirDiagnostico('Roli Villarroel','67886652','#c4f06a')">
       <div class="tecnico-foto"><img src="https://raw.githubusercontent.com/serviciotecniconeocell-eng/neocell/main/roli.jpg" alt="Técnico Roli Villarroel"></div>
       <div class="tecnico-role">Técnico</div>
       <h3>Roli Villarroel</h3>
       <div class="tecnico-tap">Toca la foto para <b>cotizar</b></div>
     </div>
-    <div class="tecnico-card" style="--color-tec:#57c7ff" onclick="abrirDiagnostico('Oliver Paredes','57354333')">
+    <div class="tecnico-card" style="--color-tec:#57c7ff" onclick="abrirDiagnostico('Oliver Paredes','57354333','#57c7ff')">
       <div class="tecnico-foto"><img src="https://raw.githubusercontent.com/serviciotecniconeocell-eng/neocell/main/oliver.jpg" alt="Técnico Oliver Paredes"></div>
       <div class="tecnico-role">Técnico</div>
       <h3>Oliver Paredes</h3>
@@ -419,13 +429,13 @@
   © 2026 <span>Neo Cell</span> · Servicio Técnico de Celulares · Comercial Grigotá, Pasillo B, Local 23 · Santa Cruz, Bolivia
 </footer>
 
-<!-- Modal de diagnóstico, se abre desde el perfil de cada técnico -->
+<!-- Modal de diagnóstico, se abre desde el perfil de cada técnico y cambia de color según el elegido -->
 <div class="modal-overlay" id="modal-diagnostico">
-  <div class="modal-box">
+  <div class="modal-box" id="modal-box">
     <button class="modal-close" type="button" onclick="cerrarDiagnostico()">✕</button>
     <span class="diag-badge">15% OFF · Cotización gratis</span>
     <div class="section-head" style="text-align:left;margin-bottom:24px;max-width:none;">
-      <div class="kicker" style="color:var(--lima-brillante);">Diagnóstico con <span id="modal-tecnico-nombre">técnico</span></div>
+      <div class="kicker">Diagnóstico con <span id="modal-tecnico-nombre">técnico</span></div>
       <h2 style="color:var(--blanco);font-size:1.5rem;">Cuéntanos qué pasó</h2>
     </div>
     <form id="form-diagnostico">
@@ -459,6 +469,10 @@
           <label class="falla-chip"><input type="checkbox" name="falla" value="Micrófono"> Micrófono</label>
           <label class="falla-chip"><input type="checkbox" name="falla" value="Protector"> Protector</label>
           <label class="falla-chip"><input type="checkbox" name="falla" value="Parlante"> Parlante</label>
+          <label class="falla-chip"><input type="checkbox" id="chk-otra-falla" name="falla" value="Otra falla"> Otra falla</label>
+        </div>
+        <div class="otra-falla-detalle" id="otra-falla-detalle">
+          <input type="text" id="otra-falla-texto" placeholder="Cuéntanos qué le pasa a tu celular...">
         </div>
       </div>
 
@@ -484,10 +498,13 @@
   var tecnicoActualNombre = '';
   var tecnicoActualTelefono = '';
 
-  function abrirDiagnostico(nombre, telefono){
+  function abrirDiagnostico(nombre, telefono, color){
     tecnicoActualNombre = nombre;
     tecnicoActualTelefono = telefono;
     document.getElementById('modal-tecnico-nombre').textContent = nombre;
+    if(color){
+      document.getElementById('modal-box').style.setProperty('--tec-color', color);
+    }
     document.getElementById('modal-diagnostico').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -501,12 +518,27 @@
     if(e.target === this){ cerrarDiagnostico(); }
   });
 
+  // Mostrar / ocultar el campo de texto de "Otra falla"
+  var chkOtraFalla = document.getElementById('chk-otra-falla');
+  var otraFallaDetalle = document.getElementById('otra-falla-detalle');
+  var otraFallaTexto = document.getElementById('otra-falla-texto');
+  chkOtraFalla.addEventListener('change', function(){
+    if(this.checked){
+      otraFallaDetalle.classList.add('visible');
+      otraFallaTexto.focus();
+    } else {
+      otraFallaDetalle.classList.remove('visible');
+      otraFallaTexto.value = '';
+    }
+  });
+
   document.getElementById('form-diagnostico').addEventListener('submit', function(e){
     e.preventDefault();
     var modelo = document.getElementById('modelo').value;
     var nombre = document.getElementById('nombre').value.trim();
     var telefono = document.getElementById('telefono').value.trim();
     var fallas = Array.from(document.querySelectorAll('input[name="falla"]:checked')).map(function(el){return el.value;});
+    var otraFallaVal = otraFallaTexto.value.trim();
 
     if(!modelo || !nombre || !telefono){
       alert('Por favor completa la marca, tu nombre y tu número de contacto.');
@@ -516,15 +548,27 @@
       alert('Selecciona al menos una falla de tu celular.');
       return;
     }
+    if(chkOtraFalla.checked && !otraFallaVal){
+      alert('Cuéntanos brevemente cuál es la otra falla.');
+      return;
+    }
     if(!tecnicoActualTelefono){
       alert('Por favor elige primero un técnico.');
       return;
     }
 
+    // Reemplaza "Otra falla" por el detalle escrito por el cliente
+    var fallasTexto = fallas.map(function(f){
+      if(f === 'Otra falla'){
+        return 'Otra falla (' + otraFallaVal + ')';
+      }
+      return f;
+    }).join(', ');
+
     var mensaje =
       'Hola ' + tecnicoActualNombre + ' 👋, quiero cotizar una reparación con Neo Cell (15% de descuento):\n' +
       '📱 Marca: ' + modelo + '\n' +
-      '🔧 Falla(s): ' + fallas.join(', ') + '\n' +
+      '🔧 Falla(s): ' + fallasTexto + '\n' +
       '🙋 Nombre: ' + nombre + '\n' +
       '📞 Mi contacto: ' + telefono;
 
